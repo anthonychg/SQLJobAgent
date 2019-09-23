@@ -19,3 +19,23 @@ ELSE
 BEGIN 
     PRINT 'Job ''' + @JOB_NAME + ''' is already started '; 
 END
+GO
+IF  DATEPART(day,DATEADD(dd, 0, datediff(day, 0, getdate())))=1
+	BEGIN 
+	EXEC msdb.dbo.sp_start_job 'JobName'
+	END
+
+IF DATEPART(dw,GETDATE()) = 2
+        BEGIN
+               EXEC msdb.dbo.sp_start_job 'JobName'
+        END
+
+IF DATEPART(DAY,GETDATE()) = 1
+	BEGIN
+		EXEC msdb.dbo.sp_start_job 'JobName'
+	END
+
+IF DATEPART(DAY,GETDATE()) = 1
+	BEGIN
+		EXEC msdb.dbo.sp_start_job 'JobName'
+	END
